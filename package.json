@@ -1,0 +1,21 @@
+{
+  "name": "rxjs",
+  "version": "1.0.0",
+  "description": "RxJs Learn Field",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development"
+  },
+  "author": "godwin",
+  "license": "ISC",
+  "dependencies": {
+    "rxjs": "^7.8.1",
+    "rxjs-compat": "^6.6.7",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
+  }
+}
