@@ -1,4 +1,17 @@
 // import * as Rx from "rxjs/Observable";
-import * as Rx from "rxjs";
+// const { Observable } = require('rxjs')
+import { Observable } from 'rxjs'
 
-console.log(Rx)
+const observable = new Observable((subscriber) => {
+    subscriber.next(10)
+    subscriber.complete()
+})
+console.log(observable)
+
+const observer = {
+    next: (value: number) => {console.log('Observer got a value of ' + value)},
+    error: (err: any) => { console.log('observer got an error of' + err)},
+    complete: () => {console.log('observer got a complete notification ')}
+}
+
+observable.subscribe(observer);
