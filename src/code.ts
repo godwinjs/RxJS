@@ -1,9 +1,45 @@
 // import * as Rx from "rxjs/Observable";
 // const { Observable } = require('rxjs')
 import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { map, pluck } from 'rxjs/operators'
 
 const users = {
+    data: [
+        {
+            status: 'active',
+            age: 32
+        },
+        {
+            status: 'active',
+            age: 14
+        },
+        {
+            status: 'inactive',
+            age: 13
+        },
+        {
+            status: 'active',
+            age: 24
+        },
+        {
+            status: 'inactive',
+            age: 56
+        },
+        {
+            status: 'active',
+            age: 17
+        },
+        {
+            status: 'inactive',
+            age: 19
+        },
+        {
+            status: 'inactive',
+            age: 18
+        }
+    ]
+}
+const users2 = {
     data: [
         {
             status: 'active',
@@ -47,10 +83,7 @@ const observable = new Observable((subscriber) => {
     subscriber.next(users)
     subscriber.complete()
 }).pipe(
-    map((value: usersObj ) => {
-        console.log('(1) got data from observable', value)
-        return value.data;
-    }),
+    pluck('data'),
     map((value: [{status: string, age: number}]) => {
         console.log('(2) got data from first operator', value)
         return value.filter(user => user.status ==="active")
